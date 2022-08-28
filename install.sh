@@ -3,7 +3,7 @@
 to_install=()
 
 echo ">> Notice that i3 has to be installed already"
-echo ">> Checking if packages: feh, scrot, picom, kitty exist"
+echo ">> Checking if packages exist: feh, scrot, picom, kitty"
 
 installed=$(ls /bin)
 
