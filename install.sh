@@ -46,3 +46,4 @@ echo ">> Creating config backup for i3"
 mv $HOME/.config/i3/config $HOME/.config/i3/config.bak
 echo ">> Replacing default config"
 cp ./config ~/.config/i3/config
+echo ">> Done."
