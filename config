@@ -12,8 +12,6 @@ set $mod Mod4
 
 set $ExitMessage 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session'
 set $ExitConfirm 'Yes, for real!'
-set $ScreenshotBasicMessage 'Click! Screenshot has been saved to a folder $HOME/screenshots'
-set $ScreenshotSelectionMessage 'Click! Screenshot with selection has been saved to a folder $HOME/screenshots'
 
 set $ScreenshotPath ~/screenshots/%Y-%m-%d_%H-%M-%S.png
 set $ScreenshotPathSelected ~/screenshots/%Y-%m-%d_%H-%M-%S_selected.png
@@ -141,14 +139,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym Print exec \
-	scrot -q 100 $ScreenshotPath && \
-	notify-send $ScreenshotBasicMessage
-bindsym --release $mod+Print exec \
-	notify-send 'Select area' && \
-	scrot -s -q 100 $ScreenshotPathSelected && \
-	notify-send $ScreenshotSelectionMessage
-
 bar {
     status_command i3status
 }
@@ -156,5 +146,6 @@ bar {
 for_window [class=".*"] border pixel 0
 
 exec_always picom
+exec_always flameshot
 exec_always feh --bg-fill ~/main_files/wallpapers/other/game_bg.jpg
 exec_always "setxkbmap -model pc104 -layout us,ru -variant ,, -option grp:alt_shift_toggle"
